@@ -60,4 +60,16 @@ exports.loginUser = async (request, response) => {
     }
 }
 
-exports.getUserInfo = async (request, response) => {}
+exports.getUserInfo = async (request, response) => {
+    try {
+        const user = await User.findById(request.user.id).select("-password")
+
+        if(!user) {
+            return response.status(400).json({ message: "User not found" })
+        }
+
+        response.status(200).json(user)
+    } catch (error) {
+        response.status(500).json({ message: "Error registering user", error: error.message })
+    }
+}
