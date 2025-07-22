@@ -36,6 +36,28 @@ exports.registerUser = async (request, response) => {
     }
 }
 
-exports.loginUser = async (request, response) => {}
+exports.loginUser = async (request, response) => {
+    const { email, password } = request.body
+
+    if(!email || !password) {
+        return response.status(400).json({ message: "All fields are required" })
+    }
+
+    try {
+        const user = await User.findOne({ email })
+
+        if(!user || !(await user.comparePassword(password))) {
+            return response.status(400).json({ message: "Invalid credentials" })
+        }
+
+        response.status(200).json({
+            id: user._id,
+            user,
+            token: generateToken(user._id)
+        })
+    } catch (error) {
+        response.status(500).json({ message: "Error registering user", error: error.message })
+    }
+}
 
 exports.getUserInfo = async (request, response) => {}
