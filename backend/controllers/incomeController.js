@@ -38,6 +38,14 @@ exports.getAllIncome = async (request, response) => {
     }
 }
 
-exports.deleteIncome = async (request, response) => {}
+exports.deleteIncome = async (request, response) => {
+    try {
+        await Income.findByIdAndDelete(request.params.id)
+        
+        response.json({ message: "Income deleted successfully" })
+    } catch (error) {
+        response.status(500).json({ message: "Server Error" })
+    }
+}
 
 exports.downloadIncomeExcel = async (request, response) => {}
