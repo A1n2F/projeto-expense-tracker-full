@@ -6,4 +6,4 @@ const router = express.Router()
 
 router.get("/", protect, getDashboardData)
 
-modules.exports = router
+module.exports = router
