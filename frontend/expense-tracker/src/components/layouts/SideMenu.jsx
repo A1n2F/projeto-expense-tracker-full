@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { SIDE_MENU_DATA } from "../../utils/data"
 import { UserContext } from "../../context/userContext"
+import { CharAvatar } from "../Cards/CharAvatar"
 
 export function SideMenu({activeMenu}) {
     const { user, clearUser } = useContext(UserContext)
@@ -32,7 +33,14 @@ export function SideMenu({activeMenu}) {
                         alt="Profile Image"
                         className="w-20 h-20 bg-slate-400 rounded-full"
                     />
-                ) : <></>}
+                ) : (
+                    <CharAvatar 
+                        fullName={user?.fullName}
+                        width="w-20"
+                        height="h-20"
+                        style="text-xl"
+                    />
+                )}
 
                 <h5 className="text-gray-950 font-medium leading-6">
                     {user?.fullName || ""}
