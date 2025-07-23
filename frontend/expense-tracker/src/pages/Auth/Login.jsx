@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { validateEmail } from "../../utils/helper";
@@ -8,10 +8,14 @@ import { API_PATHS } from "../../utils/apiPaths";
 import { AuthLayout } from "../../components/layouts/AuthLayout";
 import { Input } from "../../components/Inputs/Input";
 
+import { UserContext } from "../../context/userContext";
+
 export function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState(null)
+
+    const { updateUser } = useContext(UserContext)
 
     const navigate = useNavigate()
 
@@ -40,6 +44,7 @@ export function Login() {
 
             if(token) {
                 localStorage.setItem("token", token)
+                updateUser(user)
                 navigate("/dashboard")
             }
         } catch (error) {
