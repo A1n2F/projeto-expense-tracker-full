@@ -1,3 +1,4 @@
+import React from "react";
 import { LuArrowRight } from "react-icons/lu";
 import moment from "moment"
 
