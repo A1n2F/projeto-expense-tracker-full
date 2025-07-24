@@ -1,6 +1,6 @@
 import { LuUtensils, LuTrendingUp, LuTrendingDown, LuTrash2 } from "react-icons/lu"
 
-export function TransactionInfoCard({title, icon, date, amount = Number(), type, hideDeleteBtn}) {
+export function TransactionInfoCard({title, icon, date, amount, type, hideDeleteBtn}) {
     function getAmountStyles() {
         return (
             type === "income" ? "bg-green-50 text-green-500" : "bg-red-50 text-red-500"

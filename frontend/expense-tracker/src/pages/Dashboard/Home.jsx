@@ -9,10 +9,11 @@ import { addThousandsSeparator } from "../../utils/helper";
 import { DashboardLayout } from "../../components/layouts/DashboardLayout";
 import { InfoCard } from "../../components/Cards/InfoCard";
 
-import { RecentTransactions } from "../../components/Dashboard/RecentTransactions";
+import { RecentTransactions }  from "../../components/Dashboard/RecentTransactions";
 import { FinanceOverview } from "../../components/Dashboard/FinanceOverview";
 import { ExpenseTransactions } from "../../components/Dashboard/ExpenseTransactions";
 import { Last30DaysExpenses } from "../../components/Dashboard/last30DaysExpenses";
+import { RecentIncomeWithChart } from "../../components/Dashboard/RecentIncomeWithChart";
 
 import { LuHandCoins, LuWalletMinimal } from "react-icons/lu";
 import { IoMdCard } from "react-icons/io"
@@ -94,6 +95,11 @@ export function Home() {
 
                     <Last30DaysExpenses
                         data={dashboardData?.last30DaysExpenses?.transactions || []}
+                    />
+
+                    <RecentIncomeWithChart
+                        data={dashboardData?.last60DaysIncome?.transactions?.slice(0,4) || []}
+                        totalIncome={dashboardData?.totalIncome || 0}
                     />
                 </div>
             </div>
