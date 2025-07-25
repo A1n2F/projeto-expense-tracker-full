@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { DashboardLayout } from "../../components/layouts/DashboardLayout";
 import { IncomeOverview } from "../../components/Income/IncomeOverview";
+import { AddIncomeForm } from "../../components/Income/AddIncomeForm";
+
 import { Modal } from "../../components/Modal";
 
 import axiosInstance from "../../utils/axiosInstance";
@@ -59,7 +61,7 @@ export function Income() {
                     onClose={() => setOpenAddIncomeModal(false)}
                     title="Add Income"
                 >
-                    <div>Add Income Form</div>
+                    <AddIncomeForm onAddIncome={handleAddIncome} />
                 </Modal>
             </div>
         </DashboardLayout>
