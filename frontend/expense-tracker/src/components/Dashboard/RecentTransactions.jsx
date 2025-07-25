@@ -4,7 +4,12 @@ import moment from "moment"
 
 import { TransactionInfoCard } from "../Cards/TransactionInfoCard";
 
-export function RecentTransactions({transactions = [""], onSeeMore}) {
+export function RecentTransactions({transactions, onSeeMore, totalExpense, totalIncome}) {
+    // const totalBalance = [
+    //     { title: "expense", amount: totalExpense, type: "expense" },
+    //     { title: "income", amount: totalIncome, type: "income" },
+    // ]
+
     return (
         <div className="card">
             <div className="flex items-center justify-between">

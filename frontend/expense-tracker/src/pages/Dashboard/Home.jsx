@@ -78,8 +78,10 @@ export function Home() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                     <RecentTransactions
-                        transactions={dashboardData?.recentTransations}
+                        transactions={dashboardData?.recentTransations || []}
                         onSeeMore={() => navigate("/expense")}
+                        // totalIncome={dashboardData?.totalIncome || 0}
+                        // totalExpense={dashboardData?.totalExpense || 0}
                     />
 
                     <FinanceOverview
@@ -91,10 +93,12 @@ export function Home() {
                     <ExpenseTransactions
                         transactions={dashboardData?.last30DaysExpenses?.transactions || 0}
                         onSeeMore={() => navigate("/expense")}
+                        totalExpense={dashboardData?.totalExpense || 0}
                     />
 
                     <Last30DaysExpenses
                         data={dashboardData?.last30DaysExpenses?.transactions || []}
+                        totalExpense={dashboardData?.totalExpense || 0}
                     />
 
                     <RecentIncomeWithChart
