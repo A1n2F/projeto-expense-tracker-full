@@ -14,6 +14,7 @@ import { FinanceOverview } from "../../components/Dashboard/FinanceOverview";
 import { ExpenseTransactions } from "../../components/Dashboard/ExpenseTransactions";
 import { Last30DaysExpenses } from "../../components/Dashboard/last30DaysExpenses";
 import { RecentIncomeWithChart } from "../../components/Dashboard/RecentIncomeWithChart";
+import { RecentIncome } from "../../components/Dashboard/RecentIncome";
 
 import { LuHandCoins, LuWalletMinimal } from "react-icons/lu";
 import { IoMdCard } from "react-icons/io"
@@ -104,6 +105,11 @@ export function Home() {
                     <RecentIncomeWithChart
                         data={dashboardData?.last60DaysIncome?.transactions?.slice(0,4) || []}
                         totalIncome={dashboardData?.totalIncome || 0}
+                    />
+
+                    <RecentIncome
+                        transactions={dashboardData?.last60DaysIncome?.transactions || []}
+                        onSeeMore={() => navigate("/income")}
                     />
                 </div>
             </div>
