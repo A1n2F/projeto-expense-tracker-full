@@ -9,6 +9,8 @@ import { Expense } from "./pages/Dashboard/Expense"
 
 import { UserProvider } from "./context/userContext"
 
+import { Toaster } from "react-hot-toast"
+
 export function App() {
   return (
     <UserProvider>
@@ -24,6 +26,15 @@ export function App() {
           </Routes>
         </Router>
       </div>
+
+      <Toaster
+        toastOptions={{
+          className: "",
+          style: {
+            fontSize: "13px"
+          }
+        }}
+      />
     </UserProvider>
   )
 }

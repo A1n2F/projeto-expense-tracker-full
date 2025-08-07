@@ -3,9 +3,9 @@ import { Input } from "../Inputs/Input"
 import { EmojiPickerPopup } from "../EmojiPickerPopup"
 
 export function AddIncomeForm({onAddIncome}) {
-    const [income, setIncome] = useState({ source: "", amount: "", date: "", icon: ""})
+    const [income, setIncome] = useState({ source: "", amount: "", date: "", icon: "" })
     
-    const handleChange = (key, value) => setIncome({ ...income, [key]: value})
+    const handleChange = (key, value) => setIncome({...income, [key]: value})
 
     return (
         <div>
