@@ -55,12 +55,12 @@ export function Income() {
         }
 
         try {
-            await axiosInstance.post((API_PATHS.INCOME.ADD_INCOME, {
+            await axiosInstance.post(API_PATHS.INCOME.ADD_INCOME, {
                 source,
                 amount,
                 date,
                 icon
-            }))
+            })
 
             setOpenAddIncomeModal(false)
             toast.success("Income added successfully")
