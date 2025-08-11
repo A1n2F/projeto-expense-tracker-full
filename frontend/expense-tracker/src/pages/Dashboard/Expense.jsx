@@ -7,6 +7,8 @@ import toast from "react-hot-toast"
 import ExpenseOverview from "../../components/Expense/ExpenseOverview"
 import { Modal } from "../../components/Modal"
 import AddExpenseForm from "../../components/Expense/AddExpenseForm"
+import ExpenseList from "../../components/Expense/ExpenseList"
+import { DeleteAlert } from "../../components/DeleteAlert"
 
 export function Expense() {
     useUserAuth()
@@ -85,7 +87,7 @@ export function Expense() {
     async function handleDownloadExpenseDetails() {}
 
     useEffect(() => {
-        fetchExpenseDetails
+        fetchExpenseDetails()
 
         return () => {}
     }, [])
@@ -116,6 +118,17 @@ export function Expense() {
                             title="Add Expense"
                         >
                             <AddExpenseForm onAddExpense={handleAddExpense} />
+                        </Modal>
+
+                         <Modal
+                            isOpen={openDeleteAlert.show}
+                            onClose={() => setOpenDeleteAlert({ show: false, data: null })}
+                            title="Delete Expense"
+                        >
+                            <DeleteAlert
+                                content="Are you sure you want to delete this expense details?"
+                                onDelete={() => deleteExpense(openDeleteAlert.data)}
+                            />
                         </Modal>
                     </div>
         </DashboardLayout>
