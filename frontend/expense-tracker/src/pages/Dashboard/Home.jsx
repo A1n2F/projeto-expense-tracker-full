@@ -92,9 +92,12 @@ export function Home() {
                     />
 
                     <ExpenseTransactions
+                        // transactions={dashboardData?.las30DaysExpenses?.transactions || 0}
+                        // onSeeMore={() => navigate("/expense")}
+                        // totalExpense={dashboardData?.totalExpense || 0}
+
                         transactions={dashboardData?.las30DaysExpenses?.transactions || 0}
                         onSeeMore={() => navigate("/expense")}
-                        totalExpense={dashboardData?.totalExpense || 0}
                     />
 
                     <Last30DaysExpenses

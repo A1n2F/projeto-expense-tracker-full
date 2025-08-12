@@ -22,7 +22,7 @@ export function Last30DaysExpenses({data, totalExpense}) {
                 <h5 className="text-lg">Last 30 Days Expenses</h5>
             </div>
 
-            <CustomBarChart data={balanceExpense} />
+            <CustomBarChart data={chartData} />
         </div>
     )
 }
